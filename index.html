@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elan — Your Personal Concierge | Bermuda</title>
+<meta name="description" content="Elan is Bermuda's personal concierge service. Laundry, car wash, deep clean, grocery runs — we handle your errands so you don't have to.">
+<meta property="og:title" content="Elan — Your Personal Concierge">
+<meta property="og:description" content="Bermuda's errand service so you don't have to. Laundry, car wash, deep clean, grocery runs & more.">
+<meta property="og:type" content="website">
+
+<!-- Fonts: Playfair Display (serif heading) + DM Sans (body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<!-- Favicon as inline SVG data URI -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231a2332'/><text x='16' y='23' font-family='serif' font-size='20' font-weight='bold' fill='%23c9a84c' text-anchor='middle'>E</text></svg>">
+
+<style>
+/* ===== CSS Custom Properties ===== */
+:root {
+  /* Colors */
+  --color-cream: #f7f3ed;
+  --color-sand: #ede7dd;
+  --color-sand-light: #f2ede5;
+  --color-warm-white: #faf8f5;
+  --color-navy: #1a2332;
+  --color-charcoal: #2c3440;
+  --color-charcoal-light: #4a5568;
+  --color-gold: #c9a84c;
+  --color-gold-hover: #b8963e;
+  --color-gold-light: #d4b965;
+  --color-gold-subtle: rgba(201, 168, 76, 0.1);
+  --color-white: #ffffff;
+  --color-divider: rgba(26, 35, 50, 0.08);
+
+  /* Typography */
+  --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-body: 'DM Sans', 'Helvetica Neue', sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
+
+  /* Sizing */
+  --max-width: 1140px;
+  --max-width-narrow: 800px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(26, 35, 50, 0.06);
+  --shadow-md: 0 4px 16px rgba(26, 35, 50, 0.08);
+  --shadow-lg: 0 8px 32px rgba(26, 35, 50, 0.1);
+  --shadow-card: 0 2px 12px rgba(26, 35, 50, 0.06);
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 0.3s var(--ease-out);
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-navy);
+  background-color: var(--color-warm-white);
+  overflow-x: hidden;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ===== Utility ===== */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-md);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-navy);
+  margin-bottom: var(--space-lg);
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--color-charcoal-light);
+  max-width: 560px;
+  line-height: 1.65;
+}
+
+/* ===== Scroll Animations ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ===== Navigation ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: var(--space-md) 0;
+  transition: background var(--transition-base), box-shadow var(--transition-base), padding var(--transition-base);
+}
+
+.nav.scrolled {
+  background: rgba(247, 243, 237, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-sm) 0;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo svg {
+  height: 28px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-charcoal);
+  transition: color var(--transition-base);
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-gold);
+  transition: width var(--transition-base);
+}
+
+.nav-links a:hover {
+  color: var(--color-navy);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
+  color: var(--color-white) !important;
+  background: var(--color-navy);
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  transition: background var(--transition-base), transform var(--transition-base) !important;
+}
+
+.nav-cta::after { display: none !important; }
+
+.nav-cta:hover {
+  background: var(--color-charcoal);
+  transform: translateY(-1px);
+}
+
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-navy);
+  border-radius: 2px;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+@media (max-width: 768px) {
+  .nav-toggle { display: flex; }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 280px;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--color-warm-white);
+    padding: 5rem var(--space-xl) var(--space-xl);
+    gap: var(--space-lg);
+    transform: translateX(100%);
+    transition: transform var(--transition-base);
+    box-shadow: var(--shadow-lg);
+  }
+  .nav-links.open { transform: translateX(0); }
+  .nav-links a { font-size: 1rem; }
+  .nav-cta { margin-top: var(--space-md); }
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-5xl) var(--space-lg);
+  background: var(--color-cream);
+  overflow: hidden;
+}
+
+/* Subtle tropical pattern overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(201, 168, 76, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(26, 35, 50, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(201, 168, 76, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Decorative geometric accents */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  right: 8%;
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+}
+
+.hero-logo {
+  margin: 0 auto var(--space-xl);
+}
+
+.hero-logo svg {
+  height: 72px;
+  width: auto;
+  margin: 0 auto;
+}
+
+.hero-tagline {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-lg);
+}
+
+.hero-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--color-navy);
+  margin-bottom: var(--space-lg);
+  font-style: italic;
+}
+
+.hero-sub {
+  font-size: 1.0625rem;
+  color: var(--color-charcoal-light);
+  line-height: 1.65;
+  margin-bottom: var(--space-2xl);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Primary CTA Button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-white);
+  background: var(--color-gold);
+  padding: 0.875rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.btn-primary:hover {
+  background: var(--color-gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201, 168, 76, 0.3);
+}
+
+.btn-primary svg {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--transition-base);
+}
+
+.btn-primary:hover svg {
+  transform: translateX(3px);
+}
+
+/* Secondary button */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  background: transparent;
+  padding: 0.75rem 1.75rem;
+  border: 1.5px solid var(--color-navy);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: var(--color-navy);
+  color: var(--color-white);
+  transform: translateY(-1px);
+}
+
+/* Decorative line under hero */
+.hero-divider {
+  width: 48px;
+  height: 2px;
+  background: var(--color-gold);
+  margin: var(--space-3xl) auto 0;
+  border-radius: 1px;
+}
+
+/* ===== Services Section ===== */
+.services {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  background: var(--color-warm-white);
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.services-header .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-xl);
+}
+
+.service-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-divider);
+  border-radius: 12px;
+  padding: var(--space-2xl);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light));
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(201, 168, 76, 0.2);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--color-gold-subtle);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+}
+
+.service-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--color-gold);
+}
+
+.service-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--color-navy);
+}
+
+.service-price {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  margin-bottom: var(--space-md);
+}
+
+.service-desc {
+  font-size: 0.9375rem;
+  color: var(--color-charcoal-light);
+  line-height: 1.6;
+}
+
+/* Custom request card */
+.service-card.custom {
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-charcoal) 100%);
+  border-color: transparent;
+  color: var(--color-white);
+}
+
+.service-card.custom .service-icon {
+  background: rgba(201, 168, 76, 0.15);
+}
+
+.service-card.custom .service-name {
+  color: var(--color-white);
+}
+
+.service-card.custom .service-price {
+  color: var(--color-gold-light);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.service-card.custom .service-desc {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.service-card.custom::before {
+  opacity: 1;
+  background: var(--color-gold);
+}
+
+.service-card.custom:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(26, 35, 50, 0.25);
+}
+
+/* ===== How It Works ===== */
+.how-it-works {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  background: var(--color-cream);
+}
+
+.how-header {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.how-header .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2xl);
+  position: relative;
+}
+
+/* Connecting line between steps */
+.steps::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: calc(16.67% + 24px);
+  right: calc(16.67% + 24px);
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-gold) 0px,
+    var(--color-gold) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+@media (max-width: 768px) {
+  .steps {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+  .steps::before { display: none; }
+}
+
+.step {
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 2px solid var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-lg);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  position: relative;
+  z-index: 1;
+}
+
+.step-title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--color-navy);
+}
+
+.step-desc {
+  font-size: 0.9375rem;
+  color: var(--color-charcoal-light);
+  line-height: 1.6;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* ===== Memberships ===== */
+.memberships {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  background: var(--color-warm-white);
+}
+
+.memberships-header {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.memberships-header .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .tiers {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+}
+
+.tier-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-divider);
+  border-radius: 12px;
+  padding: var(--space-2xl);
+  text-align: center;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  position: relative;
+}
+
+.tier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.tier-card.featured {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-md);
+}
+
+.tier-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-gold);
+  color: var(--color-white);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.875rem;
+  border-radius: 20px;
+}
+
+.tier-name {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  margin-bottom: var(--space-sm);
+}
+
+.tier-frequency {
+  font-size: 0.875rem;
+  color: var(--color-charcoal-light);
+  margin-bottom: var(--space-lg);
+  line-height: 1.5;
+}
+
+.tier-price {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: var(--space-lg);
+}
+
+.tier-features {
+  list-style: none;
+  text-align: left;
+  margin-bottom: var(--space-xl);
+}
+
+.tier-features li {
+  font-size: 0.875rem;
+  color: var(--color-charcoal);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-divider);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tier-features li:last-child {
+  border-bottom: none;
+}
+
+.tier-features li svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+/* ===== First-Time Offer ===== */
+.offer {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  background: linear-gradient(135deg, var(--color-navy) 0%, #223044 50%, var(--color-charcoal) 100%);
+  color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.offer::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.08);
+  pointer-events: none;
+}
+
+.offer::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.06);
+  pointer-events: none;
+}
+
+.offer-inner {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.offer-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  padding: 0.375rem 1rem;
+  border-radius: 20px;
+  margin-bottom: var(--space-lg);
+}
+
+.offer-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+}
+
+.offer-title span {
+  color: var(--color-gold-light);
+}
+
+.offer-desc {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: var(--space-2xl);
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  background: var(--color-gold);
+  padding: 0.875rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+}
+
+.btn-gold:hover {
+  background: var(--color-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201, 168, 76, 0.3);
+}
+
+/* ===== Contact / CTA Section ===== */
+.contact {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  background: var(--color-cream);
+}
+
+.contact-inner {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.contact-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--color-gold-subtle);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-xl);
+}
+
+.contact-icon svg {
+  width: 28px;
+  height: 28px;
+  color: var(--color-gold);
+}
+
+.contact .section-title {
+  margin-bottom: var(--space-md);
+}
+
+.contact-desc {
+  font-size: 1rem;
+  color: var(--color-charcoal-light);
+  line-height: 1.65;
+  margin-bottom: var(--space-2xl);
+}
+
+.contact-methods {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+/* ===== Footer ===== */
+.footer {
+  padding: var(--space-2xl) 0;
+  background: var(--color-navy);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.footer-left {
+  font-size: 0.8125rem;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.footer-right a {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  transition: color var(--transition-base);
+}
+
+.footer-right a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 600px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ===== Decorative Elements ===== */
+.gold-line {
+  width: 48px;
+  height: 2px;
+  background: var(--color-gold);
+  margin: 0 auto var(--space-lg);
+  border-radius: 1px;
+}
+
+/* Subtle background pattern for sections */
+.pattern-bg {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(201, 168, 76, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* ===== Responsive Refinements ===== */
+@media (max-width: 480px) {
+  .hero-logo svg {
+    height: 56px;
+  }
+
+  .service-card {
+    padding: var(--space-xl);
+  }
+
+  .btn-primary, .btn-gold {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Navigation ===== -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo" aria-label="Elan Home">
+      <!-- Inline SVG Logo: Elan -->
+      <svg viewBox="0 0 120 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Elan">
+        <text x="0" y="28" font-family="'Playfair Display', Georgia, serif" font-size="32" font-weight="600" font-style="italic" fill="#1a2332" letter-spacing="3">Élan</text>
+        <line x1="0" y1="34" x2="40" y2="34" stroke="#c9a84c" stroke-width="1.5"/>
+      </svg>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#memberships">Memberships</a></li>
+      <li><a href="#contact" class="nav-cta">Book Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-logo reveal">
+      <!-- Full SVG Logo -->
+      <svg viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Elan — Your Personal Concierge">
+        <!-- Decorative top line -->
+        <line x1="60" y1="8" x2="140" y2="8" stroke="#c9a84c" stroke-width="0.75" opacity="0.5"/>
+        <!-- Brand name -->
+        <text x="100" y="52" font-family="'Playfair Display', Georgia, serif" font-size="46" font-weight="600" font-style="italic" fill="#1a2332" text-anchor="middle" letter-spacing="6">Élan</text>
+        <!-- Decorative bottom line -->
+        <line x1="40" y1="62" x2="160" y2="62" stroke="#c9a84c" stroke-width="1.5"/>
+        <!-- Subtle diamond accent -->
+        <rect x="97" y="67" width="6" height="6" transform="rotate(45 100 70)" fill="#c9a84c" opacity="0.6"/>
+      </svg>
+    </div>
+
+    <p class="hero-tagline reveal reveal-delay-1">Your Personal Concierge</p>
+
+    <h1 class="hero-headline reveal reveal-delay-2">
+      Bermuda's errand service<br>so you don't have to.
+    </h1>
+
+    <p class="hero-sub reveal reveal-delay-3">
+      Laundry, car wash, deep clean, grocery runs — we handle the details so you can enjoy your time.
+    </p>
+
+    <div class="reveal reveal-delay-4">
+      <a href="#" class="btn-primary">
+        Book Now
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 8h10M9 4l4 4-4 4"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="hero-divider reveal reveal-delay-4"></div>
+  </div>
+</section>
+
+<!-- ===== Services ===== -->
+<section class="services pattern-bg" id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <p class="section-label">What We Offer</p>
+      <h2 class="section-title">Services & Pricing</h2>
+      <p class="section-subtitle">Straightforward pricing. No hidden fees. Your time is worth more than errands.</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- Laundry -->
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+            <path d="M12 16a4 4 0 100-8 4 4 0 000 8z"/>
+            <path d="M6 6h.01M8 6h.01"/>
+          </svg>
+        </div>
+        <h3 class="service-name">Laundry Service</h3>
+        <p class="service-price">$45</p>
+        <p class="service-desc">Pickup, wash, fold, deliver. Up to 2 loads.</p>
+      </div>
+
+      <!-- Car Wash -->
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 17h14M3 11l2-6h14l2 6"/>
+            <path d="M3 11h18v6H3z"/>
+            <circle cx="6.5" cy="14" r="1.5"/>
+            <circle cx="17.5" cy="14" r="1.5"/>
+          </svg>
+        </div>
+        <h3 class="service-name">Car Wash & Detail</h3>
+        <p class="service-price">$60</p>
+        <p class="service-desc">Exterior wash, interior vacuum, wipe-down, tire shine.</p>
+      </div>
+
+      <!-- Deep Clean -->
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+            <path d="M9 22V12h6v10"/>
+          </svg>
+        </div>
+        <h3 class="service-name">Deep Clean</h3>
+        <p class="service-price">$200</p>
+        <p class="service-desc">Full home or apartment deep clean. Kitchen, bathrooms, floors, surfaces.</p>
+      </div>
+
+      <!-- Grocery Run -->
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+        </div>
+        <h3 class="service-name">Grocery Run</h3>
+        <p class="service-price">$35</p>
+        <p class="service-desc">Up to 20 items. We shop, you receive. Grocery cost separate.</p>
+      </div>
+
+      <!-- Custom Request -->
+      <div class="service-card custom reveal reveal-delay-4">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        </div>
+        <h3 class="service-name">Custom Request</h3>
+        <p class="service-price">Just ask — we'll make it happen</p>
+        <p class="service-desc">Got a unique errand? Message us and we'll give you a quote.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== How It Works ===== -->
+<section class="how-it-works" id="how-it-works">
+  <div class="container">
+    <div class="how-header reveal">
+      <p class="section-label">Simple Process</p>
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">Three steps. That's all it takes to get your time back.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal reveal-delay-1">
+        <div class="step-number">1</div>
+        <h3 class="step-title">Tell Us What You Need</h3>
+        <p class="step-desc">DM us on Instagram or send a text with your request. No apps, no accounts — just a message.</p>
+      </div>
+
+      <div class="step reveal reveal-delay-2">
+        <div class="step-number">2</div>
+        <h3 class="step-title">We Confirm Timing & Price</h3>
+        <p class="step-desc">We'll respond quickly with availability and a clear price. No surprises, no hidden fees.</p>
+      </div>
+
+      <div class="step reveal reveal-delay-3">
+        <div class="step-number">3</div>
+        <h3 class="step-title">We Handle It</h3>
+        <p class="step-desc">Sit back and relax. We take care of everything and you get your time back.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Memberships ===== -->
+<section class="memberships" id="memberships">
+  <div class="container">
+    <div class="memberships-header reveal">
+      <p class="section-label">Monthly Plans</p>
+      <h2 class="section-title">Memberships</h2>
+      <p class="section-subtitle">Recurring services at your preferred pace. Custom-quoted to fit your needs.</p>
+    </div>
+
+    <div class="tiers">
+      <!-- Basic -->
+      <div class="tier-card reveal reveal-delay-1">
+        <h3 class="tier-name">Basic</h3>
+        <p class="tier-frequency">4 services per month</p>
+        <p class="tier-price">Custom Quote</p>
+        <ul class="tier-features">
+          <li>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-6.5"/></svg>
+            4 services monthly
+          </li>
+          <li>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-6.5"/></svg>
+            Mix & match services
+          </li>
+          <li>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-6.5"/></svg>
+            Standard scheduling
+          </li>
+        </ul>
+        <a href="#contact" class="btn-secondary">Get a Quote</a>
+      </div>
+
+      <!-- Standard -->
+      <div class="tier-card featured reveal reveal-delay-2">
+        <span class="tier-badge">Popular</span>
+        <h3 class="tier-name">Standard</h3>
+        <p class="tier-frequency">8 services per month</p>
+        <p class="tier-price">Custom Quote</p>
+        <ul class="tier-features">
+          <li>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-6.5"/></svg>
+            8 services monthly
+          </li>
+          <li>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-6.5"/></svg>
+            Mix & match services
+          </li>
+          <li>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-6.5"/></svg>
+            Priority scheduling
+          </li>
+          <li>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-6.5"/></svg>
+            Membership savings
+          </li>
+        </ul>
+        <a href="#contact" class="btn-primary" style="width: 100%; justify-content: center;">Get a Quote</a>
+      </div>
+
+      <!-- Premium -->
+      <div class="tier-card reveal reveal-delay-3">
+        <h3 class="tier-name">Premium</h3>
+        <p class="tier-frequency">Unlimited priority service</p>
+        <p class="tier-price">Custom Quote</p>
+        <ul class="tier-features">
+          <li>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-6.5"/></svg>
+            Unlimited services
+          </li>
+          <li>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-6.5"/></svg>
+            Top priority scheduling
+          </li>
+          <li>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-6.5"/></svg>
+            Dedicated concierge
+          </li>
+          <li>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-6.5"/></svg>
+            Best value
+          </li>
+        </ul>
+        <a href="#contact" class="btn-secondary">Get a Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== First-Time Offer ===== -->
+<section class="offer" id="offer">
+  <div class="container offer-inner reveal">
+    <span class="offer-badge">First-Time Client</span>
+    <h2 class="offer-title">Get <span>10% Off</span> Your First Service</h2>
+    <p class="offer-desc">Try Elan risk-free. Mention this offer when you book and we'll apply the discount.</p>
+    <a href="#" class="btn-gold">
+      Claim Your Discount
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 8h10M9 4l4 4-4 4"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-inner reveal">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+        </svg>
+      </div>
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-title">Ready to Reclaim Your Time?</h2>
+      <p class="contact-desc">No apps, no sign-ups. Just send us a message and we'll take care of the rest. DM us on Instagram or text to book.</p>
+      <div class="contact-methods">
+        <a href="#" class="btn-primary">
+          DM on Instagram
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </a>
+        <a href="#" class="btn-secondary">
+          Text to Book
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-left">
+      &copy; 2026 Elan. Bermuda.
+    </div>
+    <div class="footer-right">
+      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JavaScript ===== -->
+<script>
+(function() {
+  'use strict';
+
+  // --- Scroll Reveal ---
+  const reveals = document.querySelectorAll('.reveal');
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -60px 0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  reveals.forEach(function(el) {
+    observer.observe(el);
+  });
+
+  // --- Navbar scroll effect ---
+  const nav = document.getElementById('nav');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', function() {
+    const scrollY = window.scrollY;
+    if (scrollY > 40) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+    lastScroll = scrollY;
+  }, { passive: true });
+
+  // --- Mobile nav toggle ---
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+
+  toggle.addEventListener('click', function() {
+    links.classList.toggle('open');
+    const isOpen = links.classList.contains('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+
+    // Animate hamburger to X
+    const spans = toggle.querySelectorAll('span');
+    if (isOpen) {
+      spans[0].style.transform = 'translateY(7px) rotate(45deg)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+    } else {
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    }
+  });
+
+  // Close mobile nav on link click
+  links.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      links.classList.remove('open');
+      const spans = toggle.querySelectorAll('span');
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    });
+  });
+
+  // --- Smooth scroll for anchor links ---
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        const offset = 80; // account for fixed nav
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
